@@ -11,5 +11,5 @@
 **Dependencies:**
 - I have referenced external CSS files and also mentioned the gitHub repo example where I borrowed and given credit to the animations and media queries.
 
-**Future implementation/Nice to have**
+**Future implementation/Nice to have***
 
