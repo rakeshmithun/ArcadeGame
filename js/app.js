@@ -178,12 +178,12 @@ const choosePlayer = (selection) => {
 }
 
 function showLives() { // Generate html to display hearts-lives
-    let lives = document.querySelector('.hearts');
-    let heartHtml = '<img src="images/Heart.png">';
-    lives.innerHTML = "";
+    let lives = document.getElementById("lives");
+    let heartHtml = ['<img src="images/Heart.png">'];
+    lives.innerHTML = heartHtml;
 
     for (let i = 0; i < 3; i++) {
-        lives.innerHTML += heartHtml;
+        stars[i].style.visibility = (i < rating) ? "show" : "collapse";
     }
 }
 
