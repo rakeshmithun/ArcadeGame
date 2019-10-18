@@ -101,10 +101,8 @@ class Player {
                 } else {
                     this.y -= 83;
                 }
-                console.log('up');
                 break;
         }
-        console.log('player.handleInput');
     }
 
     // Draw player on the screen
@@ -116,7 +114,7 @@ class Player {
 // Now instantiate your objects.
 let counter = 0;
 const points = document.getElementById('points');
-let player = new Player(202, 404); //Define player (x-)position: (0, 0 is top left corner) & (505 / 2 - 50.5 = 202) 
+let player = new Player(202, 404);
 let lives = document.querySelectorAll(".heart")
 
 // Place all enemy objects in an array called allEnemies
@@ -124,9 +122,6 @@ const newEnemy = new Enemy(-100, 227.5, 50); //Define enemy (y-) position: to cr
 const newEnemy1 = new Enemy(-100, 145, 50);
 const newEnemy2 = new Enemy(-100, 61, 50);
 let allEnemies = [newEnemy, newEnemy1, newEnemy2];
-
-// Place the player object in a variable called player
-//let player = { player: "player" };
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -150,8 +145,7 @@ function checkCollision(oneEnemy) {
         counter = 0; // Player reaches water (without bug collision)= 1 point.
         points.innerHTML = counter;
         //removeLive(); // TO ADD: delete 1 life
-        lives = i - 1; //
-        //console.log(hearts);
+        //lives = i - 1; //
     }
 };
 
@@ -175,6 +169,8 @@ const choosePlayer = (selection) => {
     }
 }
 
+
+//TODO: decrease life based on game play
 // function showLives() { // Generate html to display hearts-lives
 //     let lives = document.querySelector('.hearts');
 //     let heartHtml = '<img src="images/Heart.png">';
