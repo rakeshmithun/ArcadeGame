@@ -3,8 +3,8 @@ let gameStart = false;
 const modal = document.getElementById('myModal');
 const modal_content = document.querySelector('gameRules');
 const btn = document.getElementById("myBtn");
-
 const win_modal = document.getElementById('winModal');
+
 window.onload = restartGame();
 if (gameStart === true) {
     modal.style.display = "none";
@@ -58,7 +58,6 @@ class Player {
         //showLives(this.lives);
     }
 
-
     /* Player handleInput() method for ARROYKEYS */
     handleInput(keyCode) {
         switch (keyCode) {
@@ -104,7 +103,7 @@ class Player {
     }
 }
 
-// Now instantiate your objects.
+// Instantiate the objects.
 let counter = 0;
 const points = document.getElementById('points');
 let player = new Player(202, 404);
@@ -117,7 +116,6 @@ const newEnemy2 = new Enemy(-100, 61, 50);
 let allEnemies = [newEnemy, newEnemy1, newEnemy2];
 
 // This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
@@ -129,7 +127,7 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
-//Check collision
+//Check collision functions
 function checkCollision(oneEnemy) {
     if (player.x < oneEnemy.x + 80 &&
         player.x + 60 > oneEnemy.x &&
