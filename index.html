@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -20,9 +20,9 @@
             <div id="score-panel" class="score-panel flex">
                 <button id="myBtn" class="btn">Start</button>
                 <ul class="lives">Lives:
-                    <ul class="heart"><img src="images/Heart.png"></ul>
-                    <ul class="heart"><img src="images/Heart.png"></ul>
-                    <ul class="heart"><img src="images/Heart.png"></ul>
+                    <li class="heart"><img src="images/Heart.png"></li>
+                    <li class="heart"><img src="images/Heart.png"></li>
+                    <li class="heart"><img src="images/Heart.png"></li>
                 </ul>
                 <div class="score"><span>Score:</span>
                     <ul id="points" class="points">0</ul>
@@ -45,11 +45,10 @@
             </div>
             <section id="gameRules" class="rules-modal">
                 <h2>Game rules:</h2>
-                <p class="rules">Use Arroy Keys to move player.</p>
+                <p class="rules">Use the arrow keys to move player.</p>
                 <div class="arrows"><span> &larr; </span> <span> &uarr; </span> <span> &darr; </span><span> &rarr; </span> </div>
                 <p class="rules">Cross the grass = 1 point.</p>
-                <p class="rules">Avoid the ladybirds.</p>
-                <p class="rules">If hit by ladybird, game restarts.</p>
+                <p class="rules">Player will be reset if you collide with a ladybird</p>
                 <p class="rules">Game Win = collect 5 points.</p>
                 <!--<button id="myBtn" class="btn">Start</button>-->
             </section>

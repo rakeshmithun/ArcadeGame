@@ -62,7 +62,7 @@ class Player {
 
     // This class requires an update()
     update() {
-        showLives(this.lives);
+        //showLives(this.lives);
     }
 
 
@@ -117,8 +117,7 @@ class Player {
 let counter = 0;
 const points = document.getElementById('points');
 let player = new Player(202, 404); //Define player (x-)position: (0, 0 is top left corner) & (505 / 2 - 50.5 = 202) 
-let lives = 3;
-const hearts = document.getElementById('hearts');
+let lives = document.querySelectorAll(".heart")
 
 // Place all enemy objects in an array called allEnemies
 const newEnemy = new Enemy(-100, 227.5, 50); //Define enemy (y-) position: to create enemies
@@ -149,10 +148,9 @@ function checkCollision(oneEnemy) {
         40 + player.y > oneEnemy.y) {
         resetPlayer();
         counter = 0; // Player reaches water (without bug collision)= 1 point.
-        console.log(points);
         points.innerHTML = counter;
-        //removeLive(); // TO ADD: delete 1 live
-        //lives = i-1;//
+        //removeLive(); // TO ADD: delete 1 life
+        lives = i - 1; //
         //console.log(hearts);
     }
 };
@@ -177,13 +175,20 @@ const choosePlayer = (selection) => {
     }
 }
 
-function showLives() { // Generate html to display hearts-lives
-    let lives = document.getElementById("lives");
-    let heartHtml = ['<img src="images/Heart.png">'];
-    lives.innerHTML = heartHtml;
+// function showLives() { // Generate html to display hearts-lives
+//     let lives = document.querySelector('.hearts');
+//     let heartHtml = '<img src="images/Heart.png">';
+//     lives.innerHTML = "";
 
-    for (let i = 0; i < 3; i++) {
-        stars[i].style.visibility = (i < rating) ? "show" : "collapse";
+//     for (let i = 0; i < 3; i++) {
+//         lives.innerHTML += heartHtml;
+//     }
+// }
+
+
+function removeLives() {
+    for (var i = 0; i < 3; i++) {
+        lives[i].style.visibility = (i < rating) ? "show" : "collapse";
     }
 }
 
