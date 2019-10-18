@@ -54,9 +54,7 @@ class Player {
     }
 
     // This class requires an update()
-    update() {
-        //showLives(this.lives);
-    }
+    update() {}
 
     /* Player handleInput() method for ARROYKEYS */
     handleInput(keyCode) {
