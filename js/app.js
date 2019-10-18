@@ -4,8 +4,7 @@ const modal = document.getElementById('myModal');
 const modal_content = document.querySelector('gameRules');
 const btn = document.getElementById("myBtn");
 
-const win_modal = document.getElementById('winModal'); //Declare Modal score settings
-
+const win_modal = document.getElementById('winModal');
 window.onload = restartGame();
 if (gameStart === true) {
     modal.style.display = "none";
@@ -25,11 +24,6 @@ class Enemy {
 
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
-
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
-
     update(dt) {
         this.x += this.speed * dt;
         if (this.x > 500) { this.x = -100; } // Enemies move horizontally (= ONLY change x-value)
@@ -135,6 +129,7 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+//Check collision
 function checkCollision(oneEnemy) {
     if (player.x < oneEnemy.x + 80 &&
         player.x + 60 > oneEnemy.x &&
@@ -148,7 +143,8 @@ function checkCollision(oneEnemy) {
     }
 };
 
-const choosePlayer = (selection) => {
+//player selection function
+function choosePlayer(selection) {
     switch (selection) {
         case "cat":
             player.sprite = 'images/char-cat-girl.png';
