@@ -38,8 +38,7 @@ class Enemy {
         if (player.y === this.y) {
             if (player.x > this.x - 75 && player.x < this.x + 75)
                 player.resetPosition();
-            //lives.count = 0;
-            lives = hearts - 1; // Decrease Live 
+            lives = hearts - 1; // Decrease Life 
             points.innerHTML = counter; // 
         }
     }
@@ -169,24 +168,12 @@ const choosePlayer = (selection) => {
     }
 }
 
-
 //TODO: decrease life based on game play
-// function showLives() { // Generate html to display hearts-lives
-//     let lives = document.querySelector('.hearts');
-//     let heartHtml = '<img src="images/Heart.png">';
-//     lives.innerHTML = "";
-
-//     for (let i = 0; i < 3; i++) {
-//         lives.innerHTML += heartHtml;
+// function removeLives() {
+//     for (var i = 0; i < 3; i++) {
+//         lives[i].style.visibility = (i < rating) ? "show" : "collapse";
 //     }
 // }
-
-
-function removeLives() {
-    for (var i = 0; i < 3; i++) {
-        lives[i].style.visibility = (i < rating) ? "show" : "collapse";
-    }
-}
 
 function restartGame() {
     btn.addEventListener("click", function(e) {
