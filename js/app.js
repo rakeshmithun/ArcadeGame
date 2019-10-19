@@ -31,7 +31,7 @@ class Enemy {
         checkCollision(this);
         if (player.y === this.y) {
             if (player.x > this.x - 75 && player.x < this.x + 75)
-                player.resetPosition();
+                player.resetPlayer();
             lives = hearts - 1; // Decrease Life 
             points.innerHTML = counter; // 
         }
@@ -98,6 +98,14 @@ class Player extends Enemy {
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
+
+    //moved resetPlayer into the player class
+    resetPlayer() {
+        setTimeout(function() {
+            player.x = 202;
+            player.y = 404;
+        }, 100);
+    }
 }
 
 // Instantiate the objects.
@@ -130,7 +138,7 @@ function checkCollision(oneEnemy) {
         player.x + 60 > oneEnemy.x &&
         player.y < oneEnemy.y + 80 &&
         40 + player.y > oneEnemy.y) {
-        resetPlayer();
+        player.resetPlayer();
         counter = 0; // Player reaches water (without bug collision)= 1 point.
         points.innerHTML = counter;
         //removeLive(); // TO ADD: delete 1 life
@@ -174,10 +182,3 @@ function restartGame() {
         modal.style.display = "none";
     })
 };
-
-function resetPlayer() {
-    setTimeout(function() {
-        player.x = 202;
-        player.y = 404;
-    }, 100);
-}
