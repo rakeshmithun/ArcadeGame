@@ -44,11 +44,10 @@ class Enemy {
 }
 
 /* **************PLAYER SECTION*********** */
-// setting up the player class
-class Player {
+// setting up the player using super class
+class Player extends Enemy {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        super(x, y);
         this.lives = 3;
         this.sprite = 'images/char-horn-girl.png';
     }
