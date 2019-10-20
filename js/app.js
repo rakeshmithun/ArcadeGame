@@ -5,6 +5,13 @@ const modal_content = document.querySelector('gameRules');
 const btn = document.getElementById("myBtn");
 const win_modal = document.getElementById('winModal');
 
+let config = {
+    player: {
+        initial_X: 202,
+        initial_Y: 404
+    }
+}
+
 /* **************ENEMY SECTION*********** */
 // setting up an enemy class
 class Enemy {
@@ -41,8 +48,6 @@ class Enemy {
 class Player extends Enemy {
     constructor(x, y) {
         super(x, y);
-        this.initial_X = 202;
-        this.initial_Y = 404;
         this.lives = 3;
         this.sprite = 'images/char-horn-girl.png';
     }
@@ -92,10 +97,10 @@ class Player extends Enemy {
     }
 
     //moved resetPlayer into the player class
-    resetPlayer() {
+    resetPlayer(player) {
         setTimeout(function() {
-            player.x = 202;
-            player.y = 404;
+            config.player.initial_X;
+            config.player.initial_Y;
         }, 100);
     }
 }
