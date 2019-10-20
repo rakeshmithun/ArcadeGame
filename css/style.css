@@ -48,7 +48,7 @@ main.container {
 #score-panel {
     position: relative;
     text-align: center;
-    width: 505px;
+    width: 515px;
     height: 70px;
     margin: 0 auto;
     background-color: #4f67d3;
@@ -76,6 +76,11 @@ main.container {
 
 .div {
     display: block;
+}
+
+.restart {
+    float: right;
+    cursor: pointer;
 }
 
 .btn,

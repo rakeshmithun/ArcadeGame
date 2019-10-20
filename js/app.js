@@ -5,13 +5,6 @@ const modal_content = document.querySelector('gameRules');
 const btn = document.getElementById("myBtn");
 const win_modal = document.getElementById('winModal');
 
-window.onload = restartGame();
-if (gameStart === true) {
-    modal.style.display = "none";
-} else {
-    modal.style.display = "block";
-}
-
 /* **************ENEMY SECTION*********** */
 // setting up an enemy class
 class Enemy {
@@ -48,6 +41,8 @@ class Enemy {
 class Player extends Enemy {
     constructor(x, y) {
         super(x, y);
+        this.initial_X = 202;
+        this.initial_Y = 404;
         this.lives = 3;
         this.sprite = 'images/char-horn-girl.png';
     }
@@ -64,7 +59,6 @@ class Player extends Enemy {
                 } else {
                     this.x -= 101;
                 }
-                console.log('left');
                 break;
             case 'right':
                 if (this.x + 101 > 404) {
@@ -72,7 +66,6 @@ class Player extends Enemy {
                 } else {
                     this.x += 101;
                 }
-                console.log('right');
                 break;
             case 'down':
                 if (this.y + 85 > 404) {
@@ -80,11 +73,10 @@ class Player extends Enemy {
                 } else {
                     this.y += 83;
                 }
-                console.log('down');
                 break;
             case 'up':
                 if (this.y - 85 < 0) { // Player reaches water
-                    resetPlayer(); // Player goes back to start
+                    this.resetPlayer(); // Player goes back to start
                     counter = counter + 1; // Increase Score 
                     points.innerHTML = counter; // Update score points in HTML
                 } else {
@@ -174,11 +166,30 @@ function choosePlayer(selection) {
 //     }
 // }
 
-function restartGame() {
-    btn.addEventListener("click", function(e) {
-        lives = 3;
-        counter = 0;
-        gameStart = true;
-        modal.style.display = "none";
-    })
+//event listener for start button and restart icon
+document.querySelector(".restart").addEventListener("click", initGame, true);
+document.getElementById("myBtn").addEventListener("click", startGame, true);
+
+//start game function
+function startGame() {
+    statReset();
+    gameStart = true;
+    modal.style.display = "none";
 };
+
+//initialise game function
+function initGame() {
+    statReset();
+    gameStart = false;
+    modal.style.display = "block";
+};
+
+//stat reset function
+function statReset() {
+    lives = 3;
+    counter = 0;
+    points.innerHTML = counter;
+    player.resetPlayer();
+}
+
+window.onload = initGame();
