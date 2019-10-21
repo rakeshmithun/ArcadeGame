@@ -98,9 +98,9 @@ class Player extends Enemy {
 
     //moved resetPlayer into the player class
     resetPlayer(player) {
-        setTimeout(function() {
-            config.player.initial_X;
-            config.player.initial_Y;
+        setTimeout(() => {
+            this.x = config.player.initial_X;
+            this.y = config.player.initial_Y;
         }, 100);
     }
 }
